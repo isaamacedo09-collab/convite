@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>Convite Mirela</title>
+
+<style>
+
+body{
+margin:0;
+overflow:hidden;
+background:black;
+}
+
+/* FLORESTA */
+
+#floresta{
+
+position:fixed;
+width:100%;
+height:100%;
+background:url("convite na floresta.jpeg");
+background-size:cover;
+background-position:center;
+cursor:pointer;
+transition:2s;
+
+}
+
+/* GATO */
+
+#gato{
+
+position:fixed;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:black;
+opacity:0;
+transition:2s;
+
+}
+
+/* GATO BASE */
+
+#gatoBase{
+
+width:420px;
+
+}
+
+/* OLHOS */
+
+#olhos{
+
+position:absolute;
+width:120px;
+opacity:0;
+
+}
+
+/* CONVITE FINAL */
+
+#convite{
+
+position:fixed;
+width:100%;
+height:100%;
+background:url("Convite Mirela.jpeg");
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:2s;
+
+}
+
+/* TREMOR */
+
+@keyframes tremer{
+
+0%{transform:translate(0)}
+25%{transform:translate(-6px,6px)}
+50%{transform:translate(6px,-6px)}
+75%{transform:translate(-6px,-6px)}
+100%{transform:translate(0)}
+
+}
+
+.tremendo{
+
+animation:tremer 0.25s infinite;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="floresta"></div>
+
+<div id="gato">
+
+<img id="gatoBase" src="Gatinho.jpeg">
+
+<img id="olhos" src="olhos.jpeg">
+
+</div>
+
+<div id="convite"></div>
+
+<script>
+
+let floresta=document.getElementById("floresta")
+let gato=document.getElementById("gato")
+let convite=document.getElementById("convite")
+let olhos=document.getElementById("olhos")
+
+/* PISCAR OLHOS */
+
+function piscar(){
+
+setTimeout(()=>{olhos.style.opacity=1},300)
+setTimeout(()=>{olhos.style.opacity=0},600)
+
+setTimeout(()=>{olhos.style.opacity=1},1000)
+setTimeout(()=>{olhos.style.opacity=0},1400)
+
+setTimeout(()=>{olhos.style.opacity=1},1800)
+setTimeout(()=>{olhos.style.opacity=0},2200)
+
+}
+
+/* CLIQUE NA FLORESTA */
+
+floresta.onclick=function(){
+
+document.body.classList.add("tremendo")
+
+setTimeout(()=>{
+
+document.body.classList.remove("tremendo")
+floresta.style.opacity=0
+
+},1500)
+
+/* APARECE GATO */
+
+setTimeout(()=>{
+
+gato.style.opacity=1
+piscar()
+
+},2500)
+
+/* SOME GATO */
+
+setTimeout(()=>{
+
+gato.style.opacity=0
+
+},5500)
+
+/* APARECE CONVITE */
+
+setTimeout(()=>{
+
+convite.style.opacity=1
+
+},7000)
+
+}
+
+</script>
+
+</body>
+
+</html>
